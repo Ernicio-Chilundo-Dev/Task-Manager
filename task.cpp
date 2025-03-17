@@ -16,7 +16,7 @@ struct Tarefas{
 vector<Tarefas>listaDeTarefas;
 
 // funcao para adicionar as tarefas
-void adicionarTarefas(){
+void adicionarTarefa(){
     Tarefas novaTarefa;
     novaTarefa.id=listaDeTarefas.size()+1;
 
@@ -29,7 +29,7 @@ void adicionarTarefas(){
 }
 
 // funcao para listar todas as tarefas
-void  listarTarefa(){
+void  listarTarefas(){
     if(listaDeTarefas.empty()){
         cout << "Nenhuma tarefa registrada!\n\n ";
         return;
@@ -50,7 +50,7 @@ void removerTarefa(){
     }
 
     int id;
-    cout << "Digite o ID da tarefa a ser removida\n";
+    cout << "Digite o ID da tarefa a ser removida: ";
      cin >> id;
     for(auto it  = listaDeTarefas.begin();it!=listaDeTarefas.end();++it){
         if(it->id==id){
@@ -60,9 +60,36 @@ void removerTarefa(){
         }
     }
 
-    cout <<"Tarefa com ID "<<id<<" nao encontrada!";
+    cout <<"Tarefa com ID "<<id<<" nao encontrada!\n\n";
 }
-int maian(){
 
+// Funcao principal
+int maian(){
+    int opcao;
+    do{
+        cout << "=== Gereciador de  tarefas===\n";
+        cout << "1. Adicionar tarefa\n";
+        cout << "2. Listar tarefas\n";
+        cout << "3. Remover tarefa\n";
+        cout << "0. Sair\n";
+        cin>>opcao;
+        
+        switch(opcao){
+            case 1:
+                adicionarTarefa();
+                break;
+            case 2:
+                listarTarefas();
+                break;
+            case 3:
+                removerTarefa();
+                break;
+            case 0:
+                cout <<"Saido doprograma...\n";
+                break;
+            default:
+                cout <<"Opcao invalida! Tente novamente.";
+        }
+    }while(opcao!=0);
     return 0;
 }
