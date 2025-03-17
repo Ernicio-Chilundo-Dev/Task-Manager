@@ -20,12 +20,12 @@ void adicionarTarefa(){
     Tarefas novaTarefa;
     novaTarefa.id=listaDeTarefas.size()+1;
 
-    cout << "Digite a descrricao da tarefa: ";
+    cout << "Digite a descricao da tarefa: ";
     cin.ignore();//limpa oo buffer do teclado
     getline(cin,novaTarefa.descricao);
 
     listaDeTarefas.push_back(novaTarefa);
-    cout <<"tarefa adicionada com sucesso!\n\n";
+    cout <<"Tarefa adicionada com sucesso!\n\n";
 }
 
 // funcao para listar todas as tarefas
@@ -91,5 +91,6 @@ int maian(){
                 cout <<"Opcao invalida! Tente novamente.";
         }
     }while(opcao!=0);
+    
     return 0;
 }
